@@ -1,2 +1,47 @@
-# Mandirs-of-Varanasi2
-This is an extention of the initial mandirs project started a few months ago. This project aims to map the actual point locations and associated information of mandirs found in Varanasi. 
+
+# Mapping the Mandir Points of Varanasi
+This is an extension of the initial mandirs project started a few months ago. This project aims to map the actual point locations and associated information of mandirs found in Varanasi. A similar project was initiated a few months ago, but the resources and knowledge was unavailable then to conduct a webmap loading data by a clusterMarkerGroup method. 
+
+This project aims to be an extension of the initial hex-map analysis that will provide more details about the mandir points that were collected while in Varanasi during the Spring and Summer of 2013. Below is an outline of this project including information about the nature of a 'mandir', their significance, and proper citation of the lead director of the project, Dr. Chris Haskett from Washington Lee University in Virginia. 
+
+
+## Results from a Geographic Survey of India's 'Tiny Temples' in the City of Varanasi, India 
+
+### By Nathaniel Deaton 
+
+Scholarship associated with the function and study of sacred space in Hinduism has fallen short of providing a comprehensive view of the Hindu religious landscape. Traditionally, scholarship in the field lays heavy emphasis on grand, monolithic temple spaces as the dominant form of veneration among orthodox Hindus. Oftentimes, grand temples such as the [Kashi Vishwanath Temple](https://en.wikipedia.org/wiki/Kashi_Vishwanath_Temple) or the [Mrityunjay Mahadev Mandir](https://en.wikipedia.org/wiki/Mrityunjay_Mahadev_Mandir) served as examples of Hinduism's primary veneration hotspots. However, the most recurrent and numerous temples are typically no larger than a 1x1x1 meter shelter, often built into walls, trees, or as standalone structures that are found throughout the city. Traditional and academic circles have placed an inflated emphasis on monolithic temple spaces as the primary districts of veneration, while also neglecting temple spaces that are highly local, discreet, and much more frequent. Although many of these large temples *do* play an important role for many Hindus, smaller, 'tiny temples' also play an integral if not central role to many Hindus today.
+
+
+
+![Kashi Temple](images/kashiTemple.jpg)
+*Kashi Vishwanath Temple in Varanasi. These are often the temples associated with Hindu veneration practices although they are far less numerous than their smaller counterparts - Image taken by Nathaniel Deaton, 2012.*
+
+
+The diversity of thought, ritual, cosmological systems, and theology shouldn't surprise anyone that *temple building* and *sacred space* are also characteristically variable in Hinduism as well. Regardless, a primary function of the temple or *mandir*, is to house the deity. Within Hinduism, a wide corpus of major and minor traditions exist such as principal deities like [Ganesha](https://en.wikipedia.org/wiki/Ganesha) or [Shiva](https://en.wikipedia.org/wiki/Shiva). Minor traditions within Hinduism typically refer to small mandirs associated with street corners, trees, or holy places of interest for a local community. Additionally, even more minor traditions are considered *house churches* or those gods or goddesses venerated within a family or household. 
+
+
+![Small Mandir](images/temple1.png)
+*A temple complex between Varanasi and Sarnath - categorized as a tree, a tiny temple, and a medium temple - Image taken by Nathaniel Deaton, 2012.*
+
+
+In the summer of 2012, I had the privilege to join Dr. Chris Haskett on a field survey in Varanasi where our goal was to identify, record, and collect information pertaining to these 'tiny temples' that dot the urban and surrounding rural landscapes. Much of the aforementioned research has not provided a comprehensive view Hinduism's use of sacred space within these local contexts and for this reason, we sought to provide a more thorough examination of the role that 'tiny temples' played in cultural spheres. Chris' publication on these temples was published in the South Asia Multidisciplinary Academic Journal in 2018 and you can [read more about his work here](https://journals.openedition.org/samaj/4524).
+
+
+The goal of this project is to build upon the database of temples that were collected in 2012 and 2015 by creating an interactive map that allows viewers to learn more details about the location, deities, and sacred space these mandirs impart on the local community. As Dr. Haskett states, 
+> *"By observing where temples occur and the other features of landscape with which they frequently coincide, we can learn how temples instantiate the presence of deities at important junctures of shared space... our data also suggests a number of insights about the roles that tiny temples play in making Hinduism for the residents of Varanasi."*
+
+
+Over 2,850 individual mandirs were collected and recorded within the metropolitan area of Varanasi. Interviews and photographs were often collected in conjunction with a recorded GPS point for the mandir's location. Mandirs will be symbolized according to the deity that is venerated as well as popup information that describes them in more depth. 
+
+By mapping out characteristics of mandirs we identified, our hope is that a more readily comprehensive geography of the city's public temples will emerge. Additionally, more analytical questions can be asked regarding frequency of temple localities that our GIS can play a role in answering. 
+
+## Table of Contents 
+
+1. Goals 
+2. Workflow
+3. Webmapping
+4. Citations
+
+
+
+
