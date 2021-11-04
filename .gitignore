@@ -105,6 +105,7 @@ dist
 
 
 # directories to ignor
-.data/ 
-.images/
-.Q/
+data/ 
+images/
+Q/
+.vscode/spellright.dict
