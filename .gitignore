@@ -104,7 +104,7 @@ dist
 .tern-port
 
 
-# directories to ignor
+# directories to ignore
 data/ 
 images/
 Q/
