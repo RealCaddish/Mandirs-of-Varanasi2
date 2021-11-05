@@ -101,11 +101,29 @@ how_many_d: Integer64 (10.0)
 what_if_an: String (254.0)
 is_there_a: String (254.0)
 ```
-Here, we can see that the Shapefile is projected in WGS 84 EPSG 4326 and contains field with various datatypes. 
+Here, we can see that the Shapefile is already projected in WGS 84 EPSG 4326 and contains field with various datatypes. Let's continue by adding the locations of places of worship that are "largescale" building structures (as opposed to 'tiny temples'). 
+
+First, using OSM, I've included the tag, <i> amenity = place_of_worship</i> and pulled down those point locations for the extent of the city of Varanasi:
+
+![OSM Image](images/osm_capture.JPG)
+<center> <i>Screenshot of OSM for data extraction for places of worship. Keeping only the point locations for this</i> </center>
+
+While we're at it, let's take a couple of other things that will help users better understand where they are in the city. Let's try to pull down natural water bodies and neighborhood polygons. 
+
+By using similar steps with OSM, we were able to pull down water bodies with the <i> natural = water </i> tag/value pair. 
+
+For the neighborhood in Varanasi, I found a clearinghouse for geospatial data in India, particularly for Varanasi at <a href='https://mapcruzin.com/free-uttar-pradesh-country-city-place-gis-shapefiles.htm'> this website.</a> Now, let's use OGR2OGR and MapShaper to modify these files. 
+
+For the water bodies, let's first remove some unnecessary field values leftover from OSM: 
+
+```
+$ ogr2ogr -select 
+```
 
 ## Conversion 
 Let's now convert this file to a GeoJson for use in a webmap. 
 
 ```
-$ogr2ogr
+$ogr2ogr -f "GeoJSON" mandirs.json mandirs.shp
 ```
+
