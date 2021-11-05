@@ -2,8 +2,8 @@
 
   //map options
   const options = {
-    center: [37.265, -94.04],
-    zoom: 4
+    center: [25.308, 83.008],
+    zoom: 13
   }
   //instantiate Leaflet map
   const map = L.map('map', options);
@@ -13,4 +13,4 @@
     maxZoom: 18,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy;<a href="https://carto.com/attribution">CARTO</a>'
   }).addTo(map);
-});
+})();
