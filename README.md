@@ -112,18 +112,58 @@ While we're at it, let's take a couple of other things that will help users bett
 
 By using similar steps with OSM, we were able to pull down water bodies with the <i> natural = water </i> tag/value pair. 
 
-For the neighborhood in Varanasi, I found a clearinghouse for geospatial data in India, particularly for Varanasi at <a href='https://mapcruzin.com/free-uttar-pradesh-country-city-place-gis-shapefiles.htm'> this website.</a> Now, let's use OGR2OGR and MapShaper to modify these files. 
+For the neighborhoods in Varanasi, I found a clearinghouse for geospatial data in India, particularly for Varanasi at <a href='https://mapcruzin.com/free-uttar-pradesh-country-city-place-gis-shapefiles.htm'> this website.</a> Now, let's use OGR2OGR and MapShaper to modify these files. First, cutting down the irrelevant OSM fields should make our file sizes smaller. 
 
-For the water bodies, let's first remove some unnecessary field values leftover from OSM: 
+First, start with the water bodies to trim the excess fields off. We'll use OGR with some SQL to select only the fields we want to keep:
 
 ```
-$ ogr2ogr -select 
+$ ogr2ogr -f "ESRI Shapefile" -sql "SELECT name, water FROM water" water_clean.shp water.shp"
 ```
+
+Checking the output in Q shows us that the shapefile has been trimmed down to just the 'water' and 'type' columns of our attributes. 
+
+Next, let's turn to the neighborhood points. Here, we'll use OGR to create a .5 mile buffer around each of the points to designate polygons for different neighborhood regions in Varanasi.To do so, I first reprojected the neighboorhood points into <i>EPSG:24381",</i> a local geographic projection in India that will use proper distance units (meters) in our buffer creation. Then, I write the following code in the terminal using some SQLite that is integrated for OGR:
+
+```
+$ogr2ogr -f "ESRI Shapefile" -dialect SQLite -sql "select ST_Buffer(geometry, 800) from neighborhood_points2" hoods_buffered.shp neighborhood_points2.shp"
+```
+
+This outputs a buffer polygon file that can be reprojected back into WGS84 for webmapping purposes:
+
+```
+$ogr2ogr hoods_buffered84.shp -t_srs "EPSG:4326" hoods_buffered.shp 
+```
+
+
 
 ## Conversion 
-Let's now convert this file to a GeoJson for use in a webmap. 
+Let's now convert our files to a GeoJson for use in a webmap. We'll start with the <b>mandirs:
 
 ```
 $ogr2ogr -f "GeoJSON" mandirs.json mandirs.shp
 ```
+
+water bodies:
+
+```
+$ogr2ogr -f "GeoJSON" water_clean.json water_clean.shp
+```
+
+large places of worship:
+
+```
+$ogr2ogr -f "GeoJSON" clean_data/geojson/places_of_worship.json places_of_worship.shp
+```
+
+neighborhoods:
+```
+ogr2ogr -f "GeoJSON" clean_data/geojson/places_of_worship.json places_of_worship.shp
+```
+
+</b>
+
+Now, all  of our points are converted properly into geojsons. Let's use some Mapshaper in the command line to practice cutting our filesizes down some more.  
+
+# <center> Node and npm 
+Let's first create a Node package file that will be used to start our project:
 
