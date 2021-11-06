@@ -13,4 +13,13 @@
     maxZoom: 18,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy;<a href="https://carto.com/attribution">CARTO</a>'
   }).addTo(map);
-})();
+})
+
+// Loading json for Carto's color scheme to npm with require() statement
+"use strict"
+const colors = require('../data/clean_data/cartocolors.json');
+
+console.log(colors)
+
+  ();
+

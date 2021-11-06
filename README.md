@@ -137,33 +137,89 @@ $ogr2ogr hoods_buffered84.shp -t_srs "EPSG:4326" hoods_buffered.shp
 
 
 ## Conversion 
-Let's now convert our files to a GeoJson for use in a webmap. We'll start with the <b>mandirs:
+Let's now convert our files to a GeoJson for use in a webmap. We'll start with:
+<b>1. mandirs:
 
 ```
 $ogr2ogr -f "GeoJSON" mandirs.json mandirs.shp
 ```
 
-water bodies:
+1. water bodies:
 
 ```
 $ogr2ogr -f "GeoJSON" water_clean.json water_clean.shp
 ```
 
-large places of worship:
+3. large places of worship:
 
 ```
 $ogr2ogr -f "GeoJSON" clean_data/geojson/places_of_worship.json places_of_worship.shp
 ```
 
-neighborhoods:
+4. neighborhoods:
 ```
-ogr2ogr -f "GeoJSON" clean_data/geojson/places_of_worship.json places_of_worship.shp
+$ ogr2ogr -f "GeoJSON" workflow_data/hoods_buffered.json hoods_buffered.shp
 ```
 
 </b>
 
-Now, all  of our points are converted properly into geojsons. Let's use some Mapshaper in the command line to practice cutting our filesizes down some more.  
+Now, all  of our points are converted properly into geojsons. Let's use some Mapshaper in the command line to practice cutting our filesizes down to more reasonable levels for webmapping. Let's first inspect our mandir points shapefile using Mapshaper instead of OGR. 
+
+```
+$ mapshaper mandirs.json -info 
+```
+
+![Capture](images/mapshaper_capture.JPG)
+
+The output gives us a list of information including the number of records (2, 822), CRS (Proj4 string of WGS84 ), the source file, and various attribute fields. Let's go ahead and create a folder for GeoJSON files created via Mapshaper. We'll view these shapefiles to compare to our original GeoJSONs created with OGR. 
+
+```
+$ mapshaper mandirs.shp -simplify dp 20% -o format=geojson mapshaper_geojson/mandirs_simplified.json
+```
+
+Let's try this with the others:
+
+<b>2. neighborhood buffers:
+```
+$ mapshaper hoods_buffered.shp -simplify dp 20% -o format=geojson mapshaper_geojson/hood_buffers_simplified.json
+```
+
+
+<b>
+ 2. water 
+
+```
+$ mapshaper water_clean.shp -simplify dp 20% -o format=geojson mapshaper_geojson/water_clean.json
+```
+
+3. places of worship 
+   </b>
+
+ </b>Here, we can add some more ways to trim down the files including filtering the fields down to <i> name</i> and <i>religion</i> as well as trimming the coordinate precision of the point locations: 
+
+```
+$ mapshaper places_of_worship.shp -filter-fields religion,name -simplify dp 20% -o precision=.0001 format=geojson places_of_worship.json 
+```
+
+![DataImage](images/data_capture.JPG)
+</b>
+We can compare our OGR GeoJSONs with Mapshaper's and compare the file size difference when it's trimmed by 20%. This is helpful for webmapping due to resource limitations.
+
+
+
+
+
+
+
+
 
 # <center> Node and npm 
-Let's first create a Node package file that will be used to start our project:
+Here, we'll begin by initializing our Node package file that will be used to start our project:
+
+```
+$ npm init 
+```
+
+There is now a created package.json file from which we can view information about our npm project. Also make sure to add a node_modules folder to gitignore if not using a Node template.
+
 
