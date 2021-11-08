@@ -223,3 +223,50 @@ $ npm init
 There is now a created package.json file from which we can view information about our npm project. Also make sure to add a node_modules folder to gitignore if not using a Node template.
 
 
+## Using a require() method 
+One way to add our cartocolors to node is through a require method which will grab that file. 
+
+```
+"use strict"
+const colors = require('../data/carto_color_scheme/cartocolors.json');
+```
+
+Another way to achieve this goal is through another means that has become more popular in recent years - Asynchronous method requests to the data with modules. Let's add this statement to our package.json file so that we can work with package modules in our Node requests:
+
+```
+}, 
+
+"type": "module"
+
+}
+```
+ 
+ Now let's perform an asynchronous request to the data: 
+
+ ```
+import fs from 'fs'
+
+// read file with an a synchronous fs request
+
+const rawData = fs.readFileSync('../data/carto_color_scheme/cartocolors.json');
+
+
+// use JSON.parse( to parse raw string to JSON)
+
+const data = JSON.parse(rawData)
+
+// create new object with key 'DarkMint' and its object value
+
+const outputData = {'DarkMint': data['DarkMint'] };
+
+// stringify the JS object and output it in the geojson subdirectory
+
+fs.writeFileSync('../data/clean_data/geojson/DarkMint.json', JSON.stringify(outputData));
+
+console.log('data/clean_data/geojson/DarkMint.json written to file!')
+ ```
+
+We've written out our color scheme by selecting out the Dark Mint series of colors. We can now add this to our project for web mapping. 
+
+## Using Node with mandirs CSV file and Point-in-Polygon Analysis 
+

@@ -1,5 +1,14 @@
 (function () {
 
+  // using D3 fetch to request data for neighborhoods, mint color scheme, mandir points, and places of worship asynchronously
+
+  const neighborhoods = d3.json('../data/clean_data/geojson/mapshaper_geojson/hood_buffers_simplified.json');
+  const mintColorScheme = d3.json('../data/clean_data/geojson/DarkMint.json');
+  const mandirs = d3.json('../data/clean_data/geojson/mandirs_simplified.json');
+  const place_worship = d3.json('../data/clean_data/geojson/mapshaper_geojson/places_of_worship.json');
+  
+
+
   //map options
   const options = {
     center: [25.308, 83.008],
@@ -14,12 +23,5 @@
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy;<a href="https://carto.com/attribution">CARTO</a>'
   }).addTo(map);
 })
-
-// Loading json for Carto's color scheme to npm with require() statement
-"use strict"
-const colors = require('../data/clean_data/cartocolors.json');
-
-console.log(colors)
-
   ();
 

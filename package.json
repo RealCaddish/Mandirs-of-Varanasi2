@@ -1,8 +1,8 @@
 {
   "name": "mandirs-of-varanasi2",
   "version": "1.0.0",
-  "description": "packages for editining mandir points and associated files in mandirs-of-Varanasi2 project folder",
-  "main": "app.js",
+  "description": "pSackages for editining mandir points and associated files in mandirs-of-Varanasi2 project folder",
+  "main": "js/file.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +15,6 @@
   "bugs": {
     "url": "https://github.com/RealCaddish/Mandirs-of-Varanasi2/issues"
   },
-  "homepage": "https://github.com/RealCaddish/Mandirs-of-Varanasi2#readme"
+  "homepage": "https://github.com/RealCaddish/Mandirs-of-Varanasi2#readme", 
+  "type":"module"
 }
