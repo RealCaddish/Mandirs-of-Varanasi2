@@ -1,6 +1,20 @@
 (function () {
   // using D3 fetch to request data for neighborhoods, mint color scheme, mandir points, and places of worship asynchronously
 
+  //map options
+  const options = {
+    center: [25.308, 83.008],
+    zoom: 13
+  }
+  //instantiate Leaflet map
+  const map = L.map('map', options);
+
+  // add CARTO voyager tiles with no labels
+  L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/voyager_nolabels/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy;<a href="https://carto.com/attribution">CARTO</a>'
+  }).addTo(map);
+
   const neighborhoods = d3.json('../data/clean_data/mapshaper_geojson/hood_buffers_simplified.json');
   const mintColorScheme = d3.json('../data/clean_data/geojson/DarkMint.json');
   const mandirs = d3.json('../data/clean_data/mapshaper_geojson/mandirs_simplified.json');
@@ -19,20 +33,11 @@
     const mandirPoints = data[2]
     const worship_place = data[3];
 
+    console.log(data[0])
 
-    //map options
-    const options = {
-      center: [25.308, 83.008],
-      zoom: 13
-    }
-    //instantiate Leaflet map
-    const map = L.map('map', options);
+    // convert the GeoJSoON to Leaflet L.geoJson() object and add to the map
+    L.geoJson(mandirPoints).addTo(map);
 
-    // add CARTO voyager tiles with no labels
-    L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/voyager_nolabels/{z}/{x}/{y}.png', {
-      maxZoom: 18,
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy;<a href="https://carto.com/attribution">CARTO</a>'
-    }).addTo(map);
   }
 })
   ();
