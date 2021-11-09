@@ -163,6 +163,8 @@ $ ogr2ogr -f "GeoJSON" workflow_data/hoods_buffered.json hoods_buffered.shp
 
 </b>
 
+## Mapshaper CL Utility 
+
 Now, all  of our points are converted properly into geojsons. Let's use some Mapshaper in the command line to practice cutting our filesizes down to more reasonable levels for webmapping. Let's first inspect our mandir points shapefile using Mapshaper instead of OGR. 
 
 ```
@@ -229,7 +231,11 @@ One way to add our cartocolors to node is through a require method which will gr
 ```
 "use strict"
 const colors = require('../data/carto_color_scheme/cartocolors.json');
+
+console.log(colors)
 ```
+
+## Using an Async Request Importing Modules
 
 Another way to achieve this goal is through another means that has become more popular in recent years - Asynchronous method requests to the data with modules. Let's add this statement to our package.json file so that we can work with package modules in our Node requests:
 
@@ -268,5 +274,7 @@ console.log('data/clean_data/geojson/DarkMint.json written to file!')
 
 We've written out our color scheme by selecting out the Dark Mint series of colors. We can now add this to our project for web mapping. 
 
-## Using Node with mandirs CSV file and Point-in-Polygon Analysis 
+# <center> Chapter 4: Webmapping
+
+Please see the <i>app.js, index.html,</i> and <i> styles.css</i> files for webmapping. 
 
