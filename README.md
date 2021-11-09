@@ -10,8 +10,7 @@ This project aims to be an extension of the initial hex-map analysis that will p
 2. Goals 
 3. Workflow
 4. Webmapping
-5. Citations
-
+ 
 # <center> Chapter 1. Introduction: Results from a Geographic Survey of India's 'Tiny Temples' in the City of Varanasi, India 
 
 ### <center> By Nathaniel Deaton </center>
@@ -277,4 +276,6 @@ We've written out our color scheme by selecting out the Dark Mint series of colo
 # <center> Chapter 4: Webmapping
 
 Please see the <i>app.js, index.html,</i> and <i> styles.css</i> files for webmapping. 
+
+
 

@@ -15,6 +15,9 @@
   "bugs": {
     "url": "https://github.com/RealCaddish/Mandirs-of-Varanasi2/issues"
   },
-  "homepage": "https://github.com/RealCaddish/Mandirs-of-Varanasi2#readme", 
-  "type":"module"
+  "homepage": "https://github.com/RealCaddish/Mandirs-of-Varanasi2#readme",
+  "type": "module",
+  "dependencies": {
+    "leaflet.markercluster": "^1.5.3"
+  }
 }
