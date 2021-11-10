@@ -105,8 +105,5 @@ dist
 
 
 # directories to ignore
-data/workflow_data/
-data/neighborhood_points_24381
-data/excel
 Q/
 .vscode/spellright.dictij
