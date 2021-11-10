@@ -108,7 +108,5 @@ dist
 data/workflow_data/
 data/neighborhood_points_24381
 data/excel
-data/mapshaper_geojson
-images/
 Q/
 .vscode/spellright.dictij
