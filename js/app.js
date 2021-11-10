@@ -38,9 +38,9 @@
 
     // create layerGroup with the neighborhood polygons
     // having trouble with viewing these in the browser still
-    L.geoJSON(varanasiHoods).addTo(map);
+    // L.geoJSON(varanasiHoods).addTo(map);
 
-    console.log(varanasiHoods)
+    // console.log(varanasiHoods)
 
     // convert the GeoJSoON to Leaflet L.geoJson() object and create new clusterMarker groups 
     const markers = L.markerClusterGroup();
@@ -75,9 +75,9 @@
     // add the markerClusterGroup to the map
     map.addLayer(markers);
 
-    const templeLocations = L.geoJSON(worship_place, {
-      style: L.circleMarker
-    })
+    // const templeLocations = L.geoJSON(worship_place, {
+    //   style: L.circleMarker
+    // })
 
 
   }
